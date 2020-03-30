@@ -48,24 +48,7 @@
 										</el-col>
 									</el-row>
 									<br>
-									<el-row :gutter="8">
-										<el-col :span="12">
-											<el-card shadow="always" style="width: 100px;height: 100px;">
-												<div slot="header" class="clearfix">
-													<span>民族统计</span>
-												</div>
-													
-											</el-card>
-										</el-col>
-										<el-col :span="12">
-											<el-card shadow="hover">
-												<div slot="header" class="clearfix">
-													<span>性别统计</span>
-												</div>
-												性别统计
-											</el-card>
-										</el-col>
-									</el-row>
+									
 								</el-main>
 								<el-main>
 									<div id="stuMap" style="width: 500px;height: 350px;"></div>
