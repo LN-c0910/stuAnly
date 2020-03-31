@@ -44,7 +44,7 @@
 		name:"gpleft",
 	    data() {
 	      return {
-	        isCollapse: true
+	        isCollapse: false
 	      }
 	    },
 	    methods: {

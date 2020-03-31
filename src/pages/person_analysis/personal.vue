@@ -289,6 +289,7 @@
 
 <script>
 	import wordcloudindex from './wordcloud1.js'
+	let defaultImg = require('../../assets/blank.png')
 	import {
 		Loading
 	} from 'element-ui';
@@ -345,8 +346,8 @@
 				},
 				mks: [],
 				savemsg: '保存',
-				imagePathPrefix: 'http://192.168.184.1:5000/',
-				imagePath: 'static/blank.png',
+				imagePathPrefix: '',
+				imagePath: defaultImg,
 				searchinput: '',
 				stuadvices: [], //搜索建议列表
 				state: '', //搜索框值
@@ -474,9 +475,9 @@
 							loadingInstance.close();
 						})
 						.catch(err => {
-							alert(this.$errmsg(err));
+							// alert(this.$errmsg(err));
 							this.imagePathPrefix = '';
-							this.imagePath = '../../assets/blank.png';
+							this.imagePath = defaultImg;
 						});
 					this.getStudentScore(sno, '2018-2019');
 
@@ -657,7 +658,7 @@
 					})
 					.catch(err => {
 						myChart.hideLoading();
-						alert(this.$errmsg(err));
+						
 					})
 			},
 			drawBlankRadar() {
@@ -727,7 +728,7 @@
 						this.studentscore.topscore = data[0]['score'];
 					})
 					.catch(err => {
-						alert(this.$errmsg(err));
+						
 					});
 
 				this.$http.post("stuAnalysis/courses/" + xuenian + "/" + sno + "/50")
