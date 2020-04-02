@@ -84,9 +84,28 @@ function errorMsg(error) {
 			return error.response.status;
 	}
 }
+
+function getUrlParam(name) {
+			let after = window.location.search;
+			after = after.substr(1) || window.location.hash.split("?")[1];	        
+	        if(after)
+	        {
+	            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	            var r = after.match(reg);
+	            if(r != null)
+	            {
+	                return  decodeURIComponent(r[2]);
+	            }
+	            else
+	            {
+	                return "";
+	            }
+	        }
+    }
 Vue.prototype.$sortByArr = sortByArr;
 Vue.prototype.$evil = evil;
 Vue.prototype.$errmsg = errorMsg;
+Vue.prototype.$param = getUrlParam;
 new Vue({
   el: '#app',
   router,

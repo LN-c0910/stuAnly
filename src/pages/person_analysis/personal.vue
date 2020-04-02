@@ -216,69 +216,67 @@
 							</el-header>
 							<el-container>
 								<el-main>
-								<el-timeline class="rewardRecords">
-								    <el-timeline-item timestamp="2018/6/13" placement="top">
-								      <el-card>
-								        <h4>企业模拟经营活动二等奖</h4>
-								        <p>校级 团队奖 获得于 2018/6/13</p>
-								      </el-card>
-								    </el-timeline-item>
-								    <el-timeline-item timestamp="2018/5/16" placement="top">
-								      <el-card>
-								        <h4>长沙理工大学英语竞赛</h4>
-								        <p>校级 个人奖 获得于 2018/5/16</p>
-								      </el-card>
-								    </el-timeline-item>
-								    <el-timeline-item timestamp="2018/4/16" placement="top">
-								      <el-card>
-								        <h4>优秀志愿者</h4>
-								        <p>校级 团队奖 获得于 2018/4/16</p>
-								      </el-card>
-								    </el-timeline-item>
-								  </el-timeline>
-								  </el-main>
+									<el-timeline class="rewardRecords">
+										<el-timeline-item timestamp="2018/6/13" placement="top">
+											<el-card>
+												<h4>企业模拟经营活动二等奖</h4>
+												<p>校级 团队奖 获得于 2018/6/13</p>
+											</el-card>
+										</el-timeline-item>
+										<el-timeline-item timestamp="2018/5/16" placement="top">
+											<el-card>
+												<h4>长沙理工大学英语竞赛</h4>
+												<p>校级 个人奖 获得于 2018/5/16</p>
+											</el-card>
+										</el-timeline-item>
+										<el-timeline-item timestamp="2018/4/16" placement="top">
+											<el-card>
+												<h4>优秀志愿者</h4>
+												<p>校级 团队奖 获得于 2018/4/16</p>
+											</el-card>
+										</el-timeline-item>
+									</el-timeline>
+								</el-main>
 							</el-container>
-						</el-container>											
+						</el-container>
 					</el-tab-pane>
 
 					<el-tab-pane label="惩罚记录" name="punish">
 						<el-container>
 							<el-main>
-							<el-timeline class="rewardRecords">
-							    <el-timeline-item timestamp="2018/6/13" placement="top">
-							      <el-card>
-							        <h4>迟到</h4>
-							        <p>通报批评 于 2018/6/13</p>
-							      </el-card>
-							    </el-timeline-item>
-							    
-							  </el-timeline>
-							  </el-main>
+								<el-timeline class="rewardRecords">
+									<el-timeline-item timestamp="2018/6/13" placement="top">
+										<el-card>
+											<h4>迟到</h4>
+											<p>通报批评 于 2018/6/13</p>
+										</el-card>
+									</el-timeline-item>
+
+								</el-timeline>
+							</el-main>
 						</el-container>
 					</el-tab-pane>
 					<el-tab-pane label="考勤记录" name="kq">
-						
+
 						<el-calendar v-model="datevalue" id="calendar">
-						      <!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
-						      <template
-						       slot="dateCell"
-						       slot-scope="{date, data}">
-						        <!--自定义内容-->
-						          <div>
-						             <div class="calendar-day">{{ data.day.split('-').slice(2).join('-') }}</div>
-						                <div v-for="item in calendarData">
-						                   <div v-if="(item.months).indexOf(data.day.split('-').slice(1)[0])!=-1">
-						                     <div v-if="(item.days).indexOf(data.day.split('-').slice(2).join('-'))!=-1">
-						                          <el-tooltip class="item" effect="dark" :content="item.things" placement="right">
-						                               <div class="is-selected">{{item.things}}</div>
-						                          </el-tooltip>
-						                       </div>
-						                    <div v-else></div>
-						                   </div>
-						               <div v-else></div>
-						             </div>
-						          </div>
-						      </template>
+							<!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
+							<template slot="dateCell" slot-scope="{date, data}">
+								<!--自定义内容-->
+								<div>
+									<div class="calendar-day">{{ data.day.split('-').slice(2).join('-') }}</div>
+									<div v-for="item in calendarData">
+										<div v-if="(item.months).indexOf(data.day.split('-').slice(1)[0])!=-1">
+											<div v-if="(item.days).indexOf(data.day.split('-').slice(2).join('-'))!=-1">
+												<el-tooltip class="item" effect="dark" :content="item.things" placement="right">
+													<div class="is-selected">{{item.things}}</div>
+												</el-tooltip>
+											</div>
+											<div v-else></div>
+										</div>
+										<div v-else></div>
+									</div>
+								</div>
+							</template>
 						</el-calendar>
 					</el-tab-pane>
 				</el-tabs>
@@ -299,20 +297,28 @@
 				stuForm: {
 					stuid: ''
 				},
-				calendarData: [
-				                    { months: ['09', '11'],days: ['15'],year:['2019'],things: '迟到' },
-				                    { months: ['11'], days: ['20'],things: '缺勤' }
-				                ],
-				                datevalue: new Date(),
-				 activities: [{
-				          content: '活动按期开始',
-				          timestamp: '2018-04-15'
-				        }, {
-				          content: '通过审核',
-				          timestamp: '2018-04-13'
-				        }, {
-				          content: '创建成功',
-				          timestamp: '2018-04-11'
+				calendarData: [{
+						months: ['09', '11'],
+						days: ['15'],
+						year: ['2019'],
+						things: '迟到'
+					},
+					{
+						months: ['11'],
+						days: ['20'],
+						things: '缺勤'
+					}
+				],
+				datevalue: new Date(),
+				activities: [{
+					content: '活动按期开始',
+					timestamp: '2018-04-15'
+				}, {
+					content: '通过审核',
+					timestamp: '2018-04-13'
+				}, {
+					content: '创建成功',
+					timestamp: '2018-04-11'
 				}],
 				labelPosition: 'top',
 				wordcloud: {
@@ -594,7 +600,7 @@
 			 * 三育雷达图
 			 */
 			drawMksRadar(sno, xuenian) {
-				
+
 				let myChart = this.$echarts.init(document.getElementById("mksradar"));
 				myChart.showLoading();
 				this.$http.post("stuAnalysis/mks/" + xuenian + "/" + sno)
@@ -658,7 +664,7 @@
 					})
 					.catch(err => {
 						myChart.hideLoading();
-						
+
 					})
 			},
 			drawBlankRadar() {
@@ -728,7 +734,7 @@
 						this.studentscore.topscore = data[0]['score'];
 					})
 					.catch(err => {
-						
+
 					});
 
 				this.$http.post("stuAnalysis/courses/" + xuenian + "/" + sno + "/50")
@@ -753,123 +759,139 @@
 					.catch(err => {
 						alert(this.$errmsg(err));
 					});
-					this.$http.get("stuAnalysis/rank/" + xuenian + "/" + sno)
+				this.$http.get("stuAnalysis/rank/" + xuenian + "/" + sno)
 					.then(({
 						data
 					}) => {
 						this.studentscore.sorted = data;
 					});
-					this.$http.post("stuAnalysis/searchfailsRate/"+xuenian+"/"+sno)
-							.then(({data}) => this.studentscore.fails = data*100);
+				this.$http.post("stuAnalysis/searchfailsRate/" + xuenian + "/" + sno)
+					.then(({
+						data
+					}) => this.studentscore.fails = data * 100);
+			},
+
+
+			/**
+			 * 成绩趋势
+			 *
+			 */
+			drawSorcetrend() {
+				//TODO
+				let myChart = this.$echarts.init(document.getElementById("trendchart"));
+				let colors = ['#5793f3', '#d14a61', '#675bba'];
+				let option = {
+					tooltip: {
+						trigger: 'axis',
+						axisPointer: {
+							type: 'cross'
+						}
+					},
+					legend: {
+						data: ['德育分', '智育分', '体育分']
+					},
+					xAxis: [{
+						type: 'category',
+						axisTick: {
+							alignWithLabel: true
+						},
+						data: ['2017-2018', '2018-2019', '2019-2020']
+					}],
+					yAxis: [{
+							type: 'value',
+							name: '德育分',
+							min: 15,
+							max: 25,
+							interval: 1,
+							position: 'right',
+							axisLine: {
+								lineStyle: {
+									color: colors[0]
+								}
+							},
+							axisLabel: {
+								formatter: '{value} '
+							}
+						},
+						{
+							type: 'value',
+							name: '智育分',
+							min: 60,
+							max: 70,
+							interval: 2,
+							position: 'right',
+							offset: 80,
+							axisLine: {
+								lineStyle: {
+									color: colors[1]
+								}
+							},
+							axisLabel: {
+								formatter: '{value} '
+							}
+						},
+						{
+							type: 'value',
+							name: '体育分',
+							min: 0,
+							max: 5,
+							position: 'left',
+							axisLine: {
+								lineStyle: {
+									color: colors[2]
+								}
+							},
+							axisLabel: {
+								formatter: '{value}'
+							},
+							interval: 1
+						}
+					],
+					series: [{
+							name: '德育分',
+							type: 'line',
+							data: [20, 21.5, 22]
+						},
+						{
+							name: '智育分',
+							type: 'line',
+							yAxisIndex: 1,
+							data: [62, 61.5, 62.5]
+						},
+						{
+							name: '体育分',
+							type: 'line',
+							yAxisIndex: 2,
+							data: [4.5, 4, 3.8]
+						}
+					]
+				};
+
+				myChart.setOption(option);
 			},
 			
-		
-		/**
-		 * 成绩趋势
-		 *
-		 */
-		drawSorcetrend() {
-			//TODO
-			let myChart = this.$echarts.init(document.getElementById("trendchart"));
-			let colors = ['#5793f3', '#d14a61', '#675bba'];
-			let option = {
-				tooltip: {
-					trigger: 'axis',
-					axisPointer: {
-						type: 'cross'
-					}
-				},
-				legend: {
-					data: ['德育分', '智育分', '体育分']
-				},
-				xAxis: [{
-					type: 'category',
-					axisTick: {
-						alignWithLabel: true
-					},
-					data: ['2017-2018', '2018-2019', '2019-2020']
-				}],
-				yAxis: [{
-						type: 'value',
-						name: '德育分',
-						min: 15,
-						max: 25,
-						interval: 1,
-						position: 'right',
-						axisLine: {
-							lineStyle: {
-								color: colors[0]
-							}
-						},
-						axisLabel: {
-							formatter: '{value} '
-						}
-					},
-					{
-						type: 'value',
-						name: '智育分',
-						min: 60,
-						max: 70,
-						interval: 2,
-						position: 'right',
-						offset: 80,
-						axisLine: {
-							lineStyle: {
-								color: colors[1]
-							}
-						},
-						axisLabel: {
-							formatter: '{value} '
-						}
-					},
-					{
-						type: 'value',
-						name: '体育分',
-						min: 0,
-						max: 5,
-						position: 'left',
-						axisLine: {
-							lineStyle: {
-								color: colors[2]
-							}
-						},
-						axisLabel: {
-							formatter: '{value}'
-						},
-						interval: 1
-					}
-				],
-				series: [{
-						name: '德育分',
-						type: 'line',
-						data: [20, 21.5, 22]
-					},
-					{
-						name: '智育分',
-						type: 'line',
-						yAxisIndex: 1,
-						data: [62, 61.5, 62.5]
-					},
-					{
-						name: '体育分',
-						type: 'line',
-						yAxisIndex: 2,
-						data: [4.5, 4, 3.8]
-					}
-				]
-			};
+			autocheck(){
+				let sno = this.$param("sno");
+				if (sno != "" && sno.match(/^[0-9]*$/)){
+					this.state = this.$param("sno");
+					this.onSubmitPerson();
+				}
+			}
 
-			myChart.setOption(option);
-		}
-
-
-	},
-	components: {
 
 		},
+		components: {
+
+		},
+
 		mounted() {
 			this.drawBlankRadar();
-		
+			this.autocheck();
+			
+			
+		},
+		beforeMount(){
+			console.log("bef",this.$param("sno"));
 		},
 		watch: {
 			state(newv, oldv) {
@@ -987,14 +1009,16 @@
 	.el-card {
 		font-size: 50px;
 	}
-	.rewardRecords .el-card{
+
+	.rewardRecords .el-card {
 		font-size: 14px;
 	}
-	.is-selected{
-	        color: red;
-			line-height: 20px;
-	        font-size: 16px;
-	        margin-top: 5px;
-			background-color: yellow;
-	    }
+
+	.is-selected {
+		color: red;
+		line-height: 20px;
+		font-size: 16px;
+		margin-top: 5px;
+		background-color: yellow;
+	}
 </style>
