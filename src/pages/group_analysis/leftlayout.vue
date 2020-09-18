@@ -68,7 +68,7 @@
 <style>
 	*{
 			font-weight: 500;
-		}
+	}
 	.el-menu-vertical-demo:not(.el-menu--collapse) {
 	  width: 200px;
 	  min-height: 600px;

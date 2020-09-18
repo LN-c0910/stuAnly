@@ -137,8 +137,8 @@
 					class: '',
 					major: ''
 				},
-				gradelist: ['2017', '2018'],
-				majorlist: ['信息管理与信息系统'],
+				gradelist: ['请选择年级','2017', '2018'],
+				majorlist: ['请选择专业','信息管理与信息系统'],
 				classlist: ['1', '2'],
 				activeName: 'overview',
 				stuList: [{
